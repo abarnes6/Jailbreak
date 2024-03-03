@@ -110,6 +110,12 @@ public class MagForMag : WeaponizedRequest
 
         if (player.Slot != prisoner.Slot && player.Slot != guard.Slot)
             return HookResult.Continue;
+        if (player.Slot != whosShot.Slot)
+        {
+            PrintToParticipants(player.PlayerName + " cheated.");
+            player.Pawn.Value?.CommitSuicide(false, true);
+            return HookResult.Handled;
+        }
 
         var shootersDeagle = FindWeapon(player, "weapon_deagle");
         if (shootersDeagle == null)
