@@ -40,6 +40,7 @@ public class JailbreakServiceCollection : IPluginServiceCollection<Jailbreak>
         serviceCollection.AddJailbreakWarden();
         serviceCollection.AddJailbreakDebug();
         serviceCollection.AddJailbreakLastRequest();
+        serviceCollection.AddJailbreakSpecialDay();
 
 		//	Add in english localization
 		serviceCollection.AddLanguage<Formatting.Languages.English>(config =>
@@ -49,6 +50,7 @@ public class JailbreakServiceCollection : IPluginServiceCollection<Jailbreak>
 			config.WithRebel<RebelNotifications>();
 			config.WithLogging<LogMessages>();
 			config.WithLastRequest<LastRequestMessages>();
+            config.WithSpecialDay<SpecialDayMessages>();
 			config.WithSpecialTreatment<SpecialTreatmentNotifications>();
 			config.WithMute<PeaceMessages>();
 			config.WithRaceLR<RaceLRMessages>();
